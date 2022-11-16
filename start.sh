@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo ${TITLE:-Hello} > /var/www/html/index.html
-
 cat > /var/www/html/index.html <<EOF
 <html>
   <body bgcolor="${COLOR:-gray}">

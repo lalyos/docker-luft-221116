@@ -15,4 +15,9 @@ services:
       - VIRTUAL_HOST=lunch.lvh.me
       - TITLE=${TITLE}
       - COLOR=${COLOR}
-      - BODY=${BODY:-default
+      - BODY=${BODY:-default}
+
+networks:
+  default:
+    external:
+      name: infra_default

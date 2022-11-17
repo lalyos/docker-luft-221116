@@ -15,7 +15,7 @@ services:
       #- --debug
       - --rest
       - --docker.domain=${DOMAIN:-lvh.me}
-      - --docker.network=infra_default
+      - --docker.network=infra
       - --api.dashboard
     ports:
       - 80:80
@@ -41,3 +41,7 @@ services:
     image: postgres:15.1
 volumes:
   mydb:
+
+networks:
+  default:
+    name: infra

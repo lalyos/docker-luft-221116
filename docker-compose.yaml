@@ -21,8 +21,8 @@ services:
       - TITLE=${TITLE}
       - COLOR=${COLOR}
       - BODY=${BODY:-default}
-
+    labels:
+      - "traefik.frontend.rule=Host:lunch.${DOMAIN:-lvh.me}"
 networks:
   default:
-    external:
-      name: infra_default
+    name: infra

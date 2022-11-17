@@ -22,16 +22,14 @@ services:
   lunch:
     # image: lalyos/lunch:v8
     build: .
+    env_file:
+      - .env-${ENV:-dev}
     ports:
     - 80
     environment:
       - VIRTUAL_HOST=lunch.lvh.me
-      - TITLE=Lunchtime
-      - COLOR=HotPink
-      - BODY=<iframe src="https://giphy.com/embed/11dgYWwHnEFomQ" width="259" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cat-eating-11dgYWwHnEFomQ">via GIPHY</a></p>
-  registry:
-    image: registry:2
-    ports:
-    - 5000:5000
+      - TITLE=${TITLE}
+      - COLOR=${COLOR}
+      - BODY=${BODY:-use TITLE/COLOR/BODY env vars}
 volumes:
   mydb:

@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  mydb:
+    environment:
+    - POSTGRES_PASSWORD=secret
+    volumes:
+    - ./sql:/docker-entrypoint-initdb.d
+    - mydb:/var/lib/postgresql/data
+    image: postgres:15.1
+  adminer:
+    image: adminer
+    ports:
+    - 8080
+
+volumes:
+  mydb:

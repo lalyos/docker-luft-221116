@@ -6,6 +6,11 @@ services:
       - VIRTUAL_HOST=db.lvh.me
     ports:
     - 8080
+  debuger:
+    profiles:
+      - debug
+    image: alpine
+    command: sleep 999
   lunch:
     # image: lalyos/lunch:v8
     build: .

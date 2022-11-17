@@ -12,7 +12,8 @@ services:
     ports:
     - 8080
   lunch:
-    image: lalyos/lunch:v8
+    # image: lalyos/lunch:v8
+    build: .
     ports:
     - 80
     environment:

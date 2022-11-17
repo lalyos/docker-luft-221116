@@ -1,5 +1,11 @@
 version: '3.3'
 services:
+  dinner:
+    image: lalyos/12factor:boujee
+    ports:
+    - 80
+    environment:
+    - TITLE=Dinnertime
   traefik:
     profiles:
       - traefik

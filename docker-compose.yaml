@@ -1,18 +1,5 @@
 version: '3.3'
 services:
-  proxy:
-    image: nginxproxy/nginx-proxy
-    ports:
-    - 80:80
-    volumes:
-    - /var/run/docker.sock:/tmp/docker.sock
-  mydb:
-    environment:
-    - POSTGRES_PASSWORD=secret
-    volumes:
-    - ./sql:/docker-entrypoint-initdb.d
-    - mydb:/var/lib/postgresql/data
-    image: postgres:15.1
   adminer:
     image: adminer
     environment:
@@ -22,14 +9,10 @@ services:
   lunch:
     # image: lalyos/lunch:v8
     build: .
-    env_file:
-      - .env-${ENV:-dev}
     ports:
     - 80
     environment:
       - VIRTUAL_HOST=lunch.lvh.me
       - TITLE=${TITLE}
       - COLOR=${COLOR}
-      - BODY=${BODY:-use TITLE/COLOR/BODY env vars}
-volumes:
-  mydb:
+      - BODY=${BODY:-default

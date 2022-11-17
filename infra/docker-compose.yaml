@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+    - 80:80
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  mydb:
+    environment:
+    - POSTGRES_PASSWORD=secret
+    volumes:
+    - ./sql:/docker-entrypoint-initdb.d
+    - mydb:/var/lib/postgresql/data
+    image: postgres:15.1
+volumes:
+  mydb:

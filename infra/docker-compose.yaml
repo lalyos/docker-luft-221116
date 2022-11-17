@@ -1,6 +1,26 @@
 version: '3.3'
 services:
+  traefik:
+    profiles:
+      - traefik
+    image: traefik:1.7-alpine
+    command:
+      - --retry
+      #- --debug
+      - --rest
+      - --docker.domain=${DOMAIN:-lvh.me}
+      - --docker.network=infra_default
+      - --api.dashboard
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.frontend.rule=Host:traefik.${DOMAIN:-lvh.me}"
+      - "traefik.port=8080"
   proxy:
+    profiles:
+      - nginx
     image: nginxproxy/nginx-proxy
     ports:
     - 80:80

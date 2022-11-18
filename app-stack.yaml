@@ -19,3 +19,7 @@ services:
     image: nginx:alpine
     ports:
     - 30003:80
+
+configs:
+  html2:
+    file: ./index.html

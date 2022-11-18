@@ -1,8 +1,0 @@
-version: '3.8'
-services:
-  fri:
-    image: lunch:v9
-    ports:
-    - 30001:80
-    environment:
-    - TITLE=friday

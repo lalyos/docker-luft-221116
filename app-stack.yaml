@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  fri:
+    image: lunch:v9
+    ports:
+    - 30001:80
+    environment:
+    - TITLE=friday
+    - COLOR=cyan
+    deploy:
+      replicas: 3
+  lunch:
+    image: lalyos/12factor:boujee 
+    ports:
+    - 30002:80
+    environment:
+    - TITLE=Lunchtime

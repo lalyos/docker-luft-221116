@@ -6,11 +6,11 @@ services:
       - VIRTUAL_HOST=db.lvh.me
     ports:
     - 8080
-  debuger:
-    profiles:
-      - debug
-    image: alpine
-    command: sleep 999
+  dev:
+    build: dev
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    command: sleep 9999
   lunch:
     # image: lalyos/lunch:v8
     build: .

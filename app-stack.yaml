@@ -22,7 +22,14 @@ services:
     configs:
     - source: html2
       target: /usr/share/nginx/html/index.html
+    secrets:
+    - source: top
+      target: /usr/share/nginx/html/top.html
+
 
 configs:
   html2:
     file: ./index.html
+secrets:
+  top:
+    file: ./topsecret.html

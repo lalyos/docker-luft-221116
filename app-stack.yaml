@@ -19,6 +19,9 @@ services:
     image: nginx:alpine
     ports:
     - 30003:80
+    configs:
+    - source: html2
+      target: /usr/share/nginx/html/index.html
 
 configs:
   html2:

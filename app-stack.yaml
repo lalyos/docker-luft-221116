@@ -1,14 +1,16 @@
 version: '3.8'
 services:
   fri:
-    image: lunch:v9
+    image: lunch:v10
     ports:
     - 30001:80
     environment:
-    - TITLE=friday
+    - TITLE_FILE=/title
     - COLOR=cyan
     deploy:
       replicas: 3
+    configs:
+    - title
   lunch:
     image: lalyos/12factor:boujee 
     ports:
@@ -30,6 +32,8 @@ services:
 configs:
   html2:
     file: ./index.html
+  title:
+    file: ./title
 secrets:
   top:
     file: ./topsecret.html

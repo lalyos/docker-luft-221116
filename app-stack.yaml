@@ -15,3 +15,7 @@ services:
     - 30002:80
     environment:
     - TITLE=Lunchtime
+  web:
+    image: nginx:alpine
+    ports:
+    - 30003:80
